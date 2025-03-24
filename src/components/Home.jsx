@@ -21,16 +21,16 @@ export default function Home() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        {/* Buttons with Navigation */}
+        
         <div className="mt-6 space-y-3">
           <button
-            onClick={() => navigate("/signup")} // ✅ Navigate to Signup page
+            onClick={() => navigate("/signup")} 
             className="w-full bg-purple-500 text-white py-2 rounded-md text-lg font-semibold transform transition duration-300 hover:bg-purple-600 hover:scale-105"
           >
             Create Account
           </button>
           <button
-            onClick={() => navigate("/login")} // ✅ Navigate to Login page (optional)
+            onClick={() => navigate("/login")} 
             className="w-full bg-pink-400 text-white py-2 rounded-md text-lg font-semibold transform transition duration-300 hover:bg-pink-500 hover:scale-105"
           >
             Already Registered? Login
