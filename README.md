@@ -1,12 +1,63 @@
-# React + Vite
+# PopX Authentication System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a simple authentication system for **PopX**, featuring a **Home**, **Signup**, and **Login** page with smooth animations and validations.
 
-Currently, two official plugins are available:
+## Features
+- **Home Page**
+  - Animated introduction with navigation buttons.
+- **Signup Page**
+  - User-friendly form with floating labels.
+  - Validations for required fields and email format.
+  - Real-time error message removal on correction.
+- **Login Page**
+  - Styled similar to Signup for a consistent UI/UX.
+  - Validations for email and password.
+- **Smooth Animations**
+  - Fade-in and slide-up effect for all pages.
+  - Button hover effects for better UX.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **React.js**
+- **Tailwind CSS**
+- **React Router**
 
-## Expanding the ESLint configuration
+## Setup Instructions
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd popx-auth
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Run the project:
+   ```sh
+   npm start
+   ```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Folder Structure
+```
+/src
+ ├── components
+ │   ├── Home.js
+ │   ├── Signup.js
+ │   ├── Login.js
+ ├── App.js
+ ├── index.js
+```
+
+## Usage
+- **Sign up** as a new user.
+- **Log in** with valid credentials.
+- Enjoy a smooth and visually appealing authentication experience!
+
+## Future Enhancements
+- Backend authentication with Firebase or Node.js.
+- Database integration for user storage.
+- Enhanced UI with more interactive elements.
+
+---
+Developed with ❤️ by [Your Name]
+
