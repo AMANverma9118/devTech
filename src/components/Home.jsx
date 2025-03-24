@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Import navigate function
 
-const Home = () => {
+export default function Home() {
   const [animate, setAnimate] = useState(false);
+  const navigate = useNavigate(); // ✅ Initialize navigation
 
   useEffect(() => {
-    setTimeout(() => setAnimate(true), 200); // Smooth delay animation
+    setTimeout(() => setAnimate(true), 200);
   }, []);
 
   return (
@@ -14,17 +16,23 @@ const Home = () => {
           animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <h1 className="text-2xl font-bold text-gray-900 ">Welcome to PopX</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Welcome to PopX</h1>
         <p className="text-gray-700 mt-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        {/* Buttons */}
+        {/* Buttons with Navigation */}
         <div className="mt-6 space-y-3">
-          <button className="w-full bg-purple-500 text-white py-2 rounded-md text-lg font-semibold transform transition duration-300 hover:bg-purple-600 hover:scale-105">
+          <button
+            onClick={() => navigate("/signup")} // ✅ Navigate to Signup page
+            className="w-full bg-purple-500 text-white py-2 rounded-md text-lg font-semibold transform transition duration-300 hover:bg-purple-600 hover:scale-105"
+          >
             Create Account
           </button>
-          <button className="w-full bg-pink-400 text-white py-2 rounded-md text-lg font-semibold transform transition duration-300 hover:bg-pink-500 hover:scale-105">
+          <button
+            onClick={() => navigate("/login")} // ✅ Navigate to Login page (optional)
+            className="w-full bg-pink-400 text-white py-2 rounded-md text-lg font-semibold transform transition duration-300 hover:bg-pink-500 hover:scale-105"
+          >
             Already Registered? Login
           </button>
         </div>
@@ -33,4 +41,3 @@ const Home = () => {
   );
 };
 
-export default Home;
