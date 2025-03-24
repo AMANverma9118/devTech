@@ -59,5 +59,5 @@ This project is a simple authentication system for **PopX**, featuring a **Home*
 - Enhanced UI with more interactive elements.
 
 ---
-Developed with ❤️ by [Your Name]
+Developed with ❤️ by Aman Verma
 
