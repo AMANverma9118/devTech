@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function Signup() {
   const navigate = useNavigate();
   
-  // State for form fields
+ 
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -14,24 +14,51 @@ export default function Signup() {
     agency: "",
   });
 
-  const [error, setError] = useState(""); // State for validation error
+  const [error, setError] = useState(""); 
 
-  // Handle input changes
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  // Handle form submission
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    
+    if (name === "email" && isValidEmail(value)) {
+      setError("");
+    }
+    if (name === "password" && value.length >= 6) {
+      setError("");
+    }
+  };
+
+  
   const handleSubmit = () => {
     const { fullName, phoneNumber, email, password, agency } = formData;
 
-    // Check if required fields are filled
+   
     if (!fullName || !phoneNumber || !email || !password || !agency) {
       setError("Please fill in all required fields.");
       return;
     }
 
-    // Navigate to Account Settings with user data
+    
+    if (!isValidEmail(email)) {
+      setError("Invalid email format.");
+      return;
+    }
+
+    
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+
+    
+    setError("");
     navigate("/account", { state: formData });
   };
 
@@ -40,10 +67,10 @@ export default function Signup() {
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h1 className="text-2xl font-bold text-gray-900">Create your PopX account</h1>
 
-        {/* Display Error Message */}
+       
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
-        {/* Input Fields with Floating Labels */}
+       
         <div className="mt-4 space-y-6">
           {[
             { label: "Full Name", name: "fullName" },
@@ -67,7 +94,7 @@ export default function Signup() {
           ))}
         </div>
 
-        {/* Radio Buttons */}
+       
         <div className="mt-4">
           <label className="block text-sm font-medium text-gray-700">
             Are you an Agency? <span className="text-red-500">*</span>
@@ -89,17 +116,17 @@ export default function Signup() {
           </div>
         </div>
 
-        {/* Buttons */}
+        
         <div className="mt-6">
           <button
             onClick={handleSubmit}
-            className="w-full bg-purple-500 text-white py-2 rounded-md text-lg font-semibold hover:bg-purple-600 transition"
+            className="w-full bg-purple-500 text-white py-2 rounded-md text-lg font-semibold hover:bg-purple-600 transition  hover:scale-105"
           >
             Create Account
           </button>
           <button
             onClick={() => navigate("/")}
-            className="w-full mt-3 bg-gray-300 text-gray-800 py-2 rounded-md text-lg font-semibold hover:bg-gray-400 transition"
+            className="w-full mt-3 bg-gray-300 text-gray-800 py-2 rounded-md text-lg font-semibold hover:bg-gray-400 transition  hover:scale-105"
           >
             Back to Home
           </button>

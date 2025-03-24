@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Import navigate function
+import { useNavigate } from "react-router-dom"; 
 
 export default function Home() {
   const [animate, setAnimate] = useState(false);
-  const navigate = useNavigate(); // ✅ Initialize navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => setAnimate(true), 200);
